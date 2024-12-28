@@ -1,14 +1,10 @@
-﻿
-//(c8
-
-
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 namespace ElectricWire
 {
@@ -52,12 +48,83 @@ namespace ElectricWire
         private GameObject actualManager;
         [HideInInspector] public GameObject allConstructionParent;
 
+        // Reference to an empty GameObject representing the controller
+        [SerializeField] private GameObject controllerObject;
+
+        public XRNode controllerNode = XRNode.RightHand; // Default to right hand controller
+        private InputDevice controllerDevice;
+
         private void Awake()
         {
             if (electricManager != null && electricManager != this) Destroy(gameObject); else electricManager = this;
 
             allConstructionParent = new GameObject();
             allConstructionParent.name = "AllConstruction";
+        }
+
+        private void Start()
+        {
+            // Initialize the controller input device
+            controllerDevice = InputDevices.GetDeviceAtXRNode(controllerNode);
+        }
+
+        private void Update()
+        {
+            if (controllerDevice.isValid)
+            {
+                RaycastAndPlaceObject();
+            }
+        }
+
+private void RaycastAndPlaceObject()
+{
+    if (controllerObject != null)
+    {
+        // Get the controller's position and rotation
+        Vector3 controllerPosition = controllerObject.transform.position;
+        Quaternion controllerRotation = controllerObject.transform.rotation;
+
+        // Create a ray from the controller
+        Ray ray = new Ray(controllerPosition, controllerRotation * Vector3.forward);
+        RaycastHit hit;
+
+        // Perform the raycast
+        if (Physics.Raycast(ray, out hit, 10f)) // Adjust range as needed
+        {
+            // Visualize raycast in editor (optional)
+            Debug.DrawRay(controllerPosition, controllerRotation * Vector3.forward * hit.distance, Color.green);
+
+            // If hit, position the object at the hit point
+            if (actualManager != null)
+            {
+                actualManager.transform.position = hit.point;
+                actualManager.transform.rotation = Quaternion.FromToRotation(Vector3.up, hit.normal); // Align with surface
+            }
+
+            // Place the object when the trigger is pressed
+            if (controllerDevice.TryGetFeatureValue(CommonUsages.triggerButton, out bool triggerPressed) && triggerPressed)
+            {
+                PlaceObjectAtPosition(hit.point);
+            }
+        }
+        else
+        {
+            // Visualize raycast when no hit
+            Debug.DrawRay(controllerPosition, controllerRotation * Vector3.forward * 10f, Color.red);
+        }
+    }
+}
+
+        public void PlaceObjectAtPosition(Vector3 position)
+        {
+            if (actualManager != null)
+            {
+                GameObject newObject = Instantiate(actualManager);
+                newObject.transform.position = position;
+                newObject.transform.parent = allConstructionParent.transform;
+
+                // You can handle additional placement logic such as rotation, etc.
+            }
         }
 
         #region SaveLoadAllJsonData
