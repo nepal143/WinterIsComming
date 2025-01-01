@@ -95,6 +95,7 @@
     <Compile Include="Assets\ElectricWire\Scripts\Environment\AdjustSun.cs" />
     <Compile Include="Assets\ElectricWire\Scripts\Environment\AdjustWind.cs" />
     <Compile Include="Assets\ElectricWire\Scripts\Components\ElectricPresenceSensor.cs" />
+    <Compile Include="Assets\Scripts\TriviaGame.cs" />
     <Compile Include="Assets\_Barking_Dog\Common Scripts\Turn_Move.cs" />
     <Compile Include="Assets\ElectricWire\Scripts\Components\ElectricGateXOR.cs" />
     <Compile Include="Assets\ElectricWire\Scripts\Managers\QuitGame.cs" />
