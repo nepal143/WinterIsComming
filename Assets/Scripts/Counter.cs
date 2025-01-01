@@ -4,44 +4,63 @@ using TMPro;
 public class CountdownTimer : MonoBehaviour
 {
     [Header("Timer Settings")]
-    public float startTimeInSeconds = 60f; // Set the countdown duration in seconds
-    public TextMeshProUGUI timerText;     // Assign your TextMeshProUGUI component here
+    public float startTimeInSeconds = 60f;  // Set the starting time in seconds
+    public TextMeshProUGUI timerText;       // Drag and drop your TextMeshProUGUI here
 
     private float currentTime;
+    private bool isTimerRunning = false;
 
     void Start()
     {
-        // Initialize the timer with the starting time
+        // Initialize the timer
         currentTime = startTimeInSeconds;
 
-        // Ensure the timer display starts correctly
-        UpdateTimerDisplay(currentTime);
+        // Start the timer automatically (optional)
+        StartTimer();
     }
 
     void Update()
     {
-        if (currentTime > 0)
+        if (isTimerRunning && currentTime > 0)
         {
             // Decrease the current time
             currentTime -= Time.deltaTime;
 
-            // Ensure the time doesn't go below zero
+            // Ensure time doesn't go below zero
             if (currentTime < 0)
             {
                 currentTime = 0;
+                isTimerRunning = false;
+                TimerEnded();
             }
 
             // Update the timer text
             UpdateTimerDisplay(currentTime);
         }
-        else
-        {
-            // Timer has reached zero
-            TimerEnded();
-        }
     }
 
-    void UpdateTimerDisplay(float time)
+    /// <summary>
+    /// Starts the timer.
+    /// </summary>
+    public void StartTimer()
+    {
+        if (timerText == null)
+        {
+            Debug.LogError("Timer TextMeshProUGUI is not assigned!");
+            return;
+        }
+
+        isTimerRunning = true;
+
+        // Initialize the timer display
+        UpdateTimerDisplay(currentTime);
+    }
+
+    /// <summary>
+    /// Updates the timer display with the formatted time.
+    /// </summary>
+    /// <param name="time">The time to display (in seconds).</param>
+    private void UpdateTimerDisplay(float time)
     {
         // Convert the time into minutes and seconds
         int minutes = Mathf.FloorToInt(time / 60);
@@ -51,17 +70,15 @@ public class CountdownTimer : MonoBehaviour
         string formattedTime = string.Format("{0:00}:{1:00}", minutes, seconds);
 
         // Update the TextMeshProUGUI component
-        if (timerText != null)
-        {
-            timerText.text = formattedTime;
-        }
+        timerText.text = formattedTime;
     }
 
-    void TimerEnded()
+    /// <summary>
+    /// Called when the timer reaches zero.
+    /// </summary>
+    private void TimerEnded()
     {
-        // This method is called when the timer reaches 00:00
         Debug.Log("Countdown Timer Ended!");
-
-        // Add any custom logic here, such as transitioning scenes or showing a message
+        // Add custom behavior here, such as triggering an event or stopping the game.
     }
 }
