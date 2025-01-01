@@ -119,6 +119,7 @@
     <Compile Include="Assets\ElectricWire\Scripts\ComponentEffects\PresenceSensorTrigger.cs" />
     <Compile Include="Assets\ElectricWire\Scripts\Components\ElectricGateNAND.cs" />
     <Compile Include="Assets\ElectricWire\Scripts\Managers\ElectricTargetInfoManager.cs" />
+    <Compile Include="Assets\Scripts\Counter.cs" />
     <Compile Include="Assets\Scripts\ChangeSceenByName.cs" />
     <Compile Include="Assets\ElectricWire\Scripts\ComponentEffects\DoorRotator.cs" />
     <Compile Include="Assets\ElectricWire\Scripts\SpawnComponent.cs" />

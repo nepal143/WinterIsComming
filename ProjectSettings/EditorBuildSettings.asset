@@ -4,7 +4,22 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Starting Scene.unity
+    guid: 47c568518e5cc2a43b8179af7644f7c3
+  - enabled: 1
+    path: Assets/Scenes/Arcade.unity
+    guid: 2a415ece98fcea448856727816e33b46
+  - enabled: 1
+    path: Assets/Scenes/Creative.unity
+    guid: 1e9d8e69bc7330b4584c05c29bdaf92d
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Trivia.unity
+    guid: 7a543bbeaa11497438c25918857f0e47
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 8baf2eb9738f87d42bf1ee3f410d6e5f, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 5902d5dc58eb0db4692916c5a97e9dc6, type: 2}

@@ -302,6 +302,7 @@ GameObject:
   - component: {fileID: 63226855}
   - component: {fileID: 63226854}
   - component: {fileID: 63226853}
+  - component: {fileID: 63226856}
   m_Layer: 5
   m_Name: JoinTriviya
   m_TagString: Untagged
@@ -372,7 +373,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 63226854}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1061059766}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: ChangeSceneByName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Creative
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &63226854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -411,6 +424,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63226851}
   m_CullTransparentMesh: 1
+--- !u!114 &63226856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63226851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8538fd340df8250448bf93b0d68c6a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &70285218
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3476,14 +3501,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 18.37
+  m_fontSizeBase: 18.37
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -3538,6 +3563,7 @@ GameObject:
   - component: {fileID: 1061059765}
   - component: {fileID: 1061059764}
   - component: {fileID: 1061059763}
+  - component: {fileID: 1061059766}
   m_Layer: 5
   m_Name: JoinTriviya
   m_TagString: Untagged
@@ -3608,7 +3634,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1061059764}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1061059766}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: ChangeSceneByName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Arcade
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1061059764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3647,6 +3685,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061059761}
   m_CullTransparentMesh: 1
+--- !u!114 &1061059766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061059761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8538fd340df8250448bf93b0d68c6a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1063805125
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5768,6 +5818,7 @@ GameObject:
   - component: {fileID: 1463542732}
   - component: {fileID: 1463542731}
   - component: {fileID: 1463542730}
+  - component: {fileID: 1463542733}
   m_Layer: 5
   m_Name: JoinTriviya
   m_TagString: Untagged
@@ -5838,7 +5889,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1463542731}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1061059766}
+        m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
+        m_MethodName: ChangeSceneByName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Trivia
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1463542731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5877,6 +5940,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1463542728}
   m_CullTransparentMesh: 1
+--- !u!114 &1463542733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1463542728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8538fd340df8250448bf93b0d68c6a7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1472041861 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 409034, guid: a4c18952442944083b1fddc06ba477c2, type: 3}
